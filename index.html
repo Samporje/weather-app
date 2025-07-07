@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&libraries=places&callback=initAutocomplete">
+        </script>
+</head>
+
+<body>
+    <h1 class="app-title">Weather<br>Application</h1>
+
+    <div class="app-wrapper">
+        <main class="main-container">
+            <header class="input-container">
+                <input class="city-input" type="text" placeholder="Search City..." autocomplete="off" />
+                <ul class="suggestion-list"></ul>
+                <button class="search-btn">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </header>
+
+            <section class="weather-info" style="display: none;">
+                <div class="location-date-container">
+                    <div class="location">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <h4 class="country-txt">City</h4>
+                    </div>
+                    <h5 class="current-date-txt regular-txt">Date</h5>
+                </div>
+
+                <div class="weather-summary-container">
+                    <img src="assets/weather/clear.svg" class="weather-summary-img" />
+                    <div class="weather-summary-info">
+                        <h1 class="temp-txt">25°C</h1>
+                        <h3 class="condition-txt regular-txt">Clear</h3>
+                    </div>
+                </div>
+
+                <div class="weather-conditions-container">
+                    <div class="condition-item">
+                        <span class="material-symbols-outlined">water_drop</span>
+                        <div class="condition-info">
+                            <h5 class="regular-txt">Humidity</h5>
+                            <h5 class="humidity-value-txt">--</h5>
+                        </div>
+                    </div>
+                    <div class="condition-item">
+                        <span class="material-symbols-outlined">air</span>
+                        <div class="condition-info">
+                            <h5 class="regular-txt">Wind</h5>
+                            <h5 class="wind-value-txt">--</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forecast-items-container"></div>
+            </section>
+
+            <section class="search-city section-message">
+                <img src="assets/message/search-city.png" />
+                <div>
+                    <h1>Search City</h1>
+                    <h4 class="regular-txt">Find out the weather condition of your city</h4>
+                </div>
+            </section>
+
+            <section class="not-found section-message" style="display: none;">
+                <img src="assets/message/not-found.png" />
+                <div>
+                    <h1>City Not Found</h1>
+                    <h4 class="regular-txt">Please try a valid city name</h4>
+                </div>
+            </section>
+
+            <p class="app-credit">Made by Samadhan Porje</p>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-weight: 600;
+}
+
+body {
+    background: url('assets/bg.jpg');
+    width: 100%;
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    background: rgb(0, 0, 0, 0.15);
+    backdrop-filter: blur(15px);
+}
+
+/* UTILITIES */
+.regular-txt {
+    font-weight: 400;
+}
+
+/* END UTILITIES */
+.main-container {
+    width: 300px;
+    height: 496px;
+    z-index: 1;
+    background: linear-gradient(to top,
+            rgb(0, 0, 0, 0.15),
+            rgb(255, 255, 255, 0.15));
+    border-radius: 12px;
+    backdrop-filter: blur(100px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* INPUT CONTAINER */
+.input-container {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.city-input {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background: rgb(0, 0, 0, 0.15);
+    outline: none;
+    font-weight: 500;
+    transition: 0.25s border;
+    padding-right: 45px;
+}
+
+.city-input:focus {
+    border: 3px solid rgb(0, 0, 0, 0.15);
+}
+
+.city-input::placeholder {
+    color: rgb(255, 255, 255, 0.75);
+}
+
+.search-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    display: flex;
+    border: none;
+    cursor: pointer;
+}
+
+/* END INPUT CONTAINER */
+
+/* SECTION:WEATHER INFO */
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.location-date-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.weather-summary-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-summary-img {
+    width: 120px;
+    height: 120px;
+}
+
+.weather-summary-info {
+    text-align: end;
+}
+
+.weather-conditions-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.condition-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.condition-item span {
+    font-size: 30px;
+}
+
+.forecast-items-container {
+    display: flex;
+    overflow: scroll;
+    padding-bottom: 12px;
+    margin-top: 12px;
+}
+
+.forecast-items-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.forecast-items-container::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0, 0.1);
+    border-radius: 99px;
+}
+
+.forecast-items-container::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0, 0.15);
+    border-radius: 99px;
+}
+
+.forecast-item {
+    min-width: 70px;
+    background: rgb(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 12px;
+    transition: 0.3s background;
+}
+
+.forecast-item:hover {
+    background: rgb(255, 255, 255, 0.15);
+}
+
+.forecast-item-img {
+    width: 35px;
+    height: 35px;
+}
+
+/* END SECTION:WEATHER INFO */
+
+/* SECTION:MESSAGE */
+.section-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    margin-top: 25%;
+}
+
+.section-message img {
+    height: 180px;
+    width: fit-content;
+}
+
+/* END SECTION:MESSAGE */
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Title in PC mode: Large, close to card, familiar background, simple fade-in animation */
+.app-title {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ffffff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
+    backdrop-filter: blur(10px);
+    padding: 20px 25px;
+    border-radius: 15px;
+    border: 3px solid rgba(147, 197, 253, 0.8);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+    line-height: 1.3;
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeInTitle 1.2s ease-in forwards;
+}
+
+/* Simple fade-in animation for title in PC mode */
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Title in mobile mode: Centered at top, single line, no animation */
+@media (max-width: 768px) {
+    .app-title {
+        left: auto;
+        top: 150px;
+        transform: none;
+        width: 100%;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #ffffff;
+        background: none;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+        white-space: nowrap;
+        opacity: 1;
+        animation: none;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .app-title br {
+        display: none;
+    }
+
+    .main-container {
+        margin-top: 60px;
+    }
+}
+
+.app-credit {
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+}
+
+.suggestion-list {
+    list-style: none;
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 12px 12px;
+    max-height: 180px;
+    overflow-y: auto;
+    z-index: 100;
+    padding: 0;
+}
+
+.suggestion-list li {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    cursor: text;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.suggestion-list li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
