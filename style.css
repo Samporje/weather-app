@@ -244,7 +244,7 @@ body::before {
 @media (max-width: 768px) {
     .app-title {
         left: auto;
-        top: 140px;
+        top: 130px;
         transform: none;
         width: 100%;
         font-size: 1.7rem;
@@ -267,7 +267,7 @@ body::before {
     }
 
     .main-container {
-        margin-top: 40px;
+        margin-top: 60px;
     }
 }
 
