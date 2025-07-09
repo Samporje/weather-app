@@ -2,98 +2,114 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&libraries=places&callback=initAutocomplete">
-        </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <title>Weather App - Real-Time City Forecast</title>
+
+  <!-- ✅ SEO Meta Tags -->
+  <meta name="title" content="Weather App - Real-Time City Forecast">
+  <meta name="description" content="Get accurate, real-time weather forecasts for any city. Created by Samadhan Porje using OpenWeather API.">
+  <meta name="keywords" content="weather app, forecast, real-time weather, city weather, temperature, humidity, openweather, weather by city">
+  <meta name="author" content="Samadhan Porje">
+  <meta name="robots" content="index, follow">
+
+  <!-- ✅ Open Graph (for social media previews) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Weather App - Real-Time City Forecast" />
+  <meta property="og:description" content="Check live weather forecasts for any city with this beautifully designed app." />
+  <meta property="og:url" content="https://yourusername.github.io/weather-app/" />
+  <!-- Optional: uncomment and replace with your actual preview image URL -->
+  <!-- <meta property="og:image" content="https://yourusername.github.io/weather-app/assets/preview.png" /> -->
+
+  <!-- ✅ Favicon (optional) -->
+  <!-- <link rel="icon" href="assets/weather/clear.svg" type="image/svg+xml" /> -->
+
+  <!-- CSS and JS -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <script src="script.js" defer></script>
+  <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&libraries=places&callback=initAutocomplete"></script>
 </head>
 
 <body>
-    <!-- <h1 class="app-title">Weather<br>Application</h1> -->
-    <div class="main-container main-container2">
-        <h1 style="font-size: 8rem; margin: 0px auto;">🌍</h1>
-        <span style="text-align: center;">
+  <div class="main-container main-container2">
+    <h1 style="font-size: 8rem; margin: 0px auto;">🌍</h1>
+    <span style="text-align: center;">
+      <span style="font-size: 2rem; font-weight: bold;">Weather</span>
+      <span style="font-size: 1.5rem;">Application</span>
+    </span>
+    <button class="button" onclick="document.querySelector('.city-input').focus();">Search</button>
+    <hr style="width: 100%; opacity: 25%;">
+    <span style="text-align: center; font-size: 0.7rem; opacity: 70%;">Forecast With Clarity</span>
+  </div>
 
-            <span style="font-size: 2rem; font-weight: bold;">Weather</span>
-            <span style="font-size: 1.5rem;">Application</span>
+  <div class="app-wrapper">
+    <main class="main-container">
+      <header class="input-container">
+        <input class="city-input" type="text" placeholder="Search City..." autocomplete="off" />
+        <ul class="suggestion-list"></ul>
+        <button class="search-btn">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+      </header>
 
-        </span>
-        <button class="button" onclick="document.querySelector('.city-input').focus();">Search</button>
-        <hr style="width: 100%; opacity: 25%;">
-        <span style="text-align: center; font-size: 0.7rem; opacity: 70%;">Forecast With Clarity</span>
+      <section class="weather-info" style="display: none;">
+        <div class="location-date-container">
+          <div class="location">
+            <span class="material-symbols-outlined">location_on</span>
+            <h4 class="country-txt">City</h4>
+          </div>
+          <h5 class="current-date-txt regular-txt">Date</h5>
+        </div>
 
-    </div>
-    <div class="app-wrapper">
-        <main class="main-container">
-            <header class="input-container">
-                <input class="city-input" type="text" placeholder="Search City..." autocomplete="off" />
-                <ul class="suggestion-list"></ul>
-                <button class="search-btn">
-                    <span class="material-symbols-outlined">search</span>
-                </button>
-            </header>
+        <div class="weather-summary-container">
+          <img src="assets/weather/clear.svg" class="weather-summary-img" />
+          <div class="weather-summary-info">
+            <h1 class="temp-txt">25°C</h1>
+            <h3 class="condition-txt regular-txt">Clear</h3>
+          </div>
+        </div>
 
-            <section class="weather-info" style="display: none;">
-                <div class="location-date-container">
-                    <div class="location">
-                        <span class="material-symbols-outlined">location_on</span>
-                        <h4 class="country-txt">City</h4>
-                    </div>
-                    <h5 class="current-date-txt regular-txt">Date</h5>
-                </div>
+        <div class="weather-conditions-container">
+          <div class="condition-item">
+            <span class="material-symbols-outlined">water_drop</span>
+            <div class="condition-info">
+              <h5 class="regular-txt">Humidity</h5>
+              <h5 class="humidity-value-txt">--</h5>
+            </div>
+          </div>
+          <div class="condition-item">
+            <span class="material-symbols-outlined">air</span>
+            <div class="condition-info">
+              <h5 class="regular-txt">Wind</h5>
+              <h5 class="wind-value-txt">--</h5>
+            </div>
+          </div>
+        </div>
 
-                <div class="weather-summary-container">
-                    <img src="assets/weather/clear.svg" class="weather-summary-img" />
-                    <div class="weather-summary-info">
-                        <h1 class="temp-txt">25°C</h1>
-                        <h3 class="condition-txt regular-txt">Clear</h3>
-                    </div>
-                </div>
+        <div class="forecast-items-container"></div>
+      </section>
 
-                <div class="weather-conditions-container">
-                    <div class="condition-item">
-                        <span class="material-symbols-outlined">water_drop</span>
-                        <div class="condition-info">
-                            <h5 class="regular-txt">Humidity</h5>
-                            <h5 class="humidity-value-txt">--</h5>
-                        </div>
-                    </div>
-                    <div class="condition-item">
-                        <span class="material-symbols-outlined">air</span>
-                        <div class="condition-info">
-                            <h5 class="regular-txt">Wind</h5>
-                            <h5 class="wind-value-txt">--</h5>
-                        </div>
-                    </div>
-                </div>
+      <section class="search-city section-message">
+        <img src="assets/message/search-city.png" />
+        <div>
+          <h1>Search City</h1>
+          <h4 class="regular-txt">Find out the weather condition of your city</h4>
+        </div>
+      </section>
 
-                <div class="forecast-items-container"></div>
-            </section>
+      <section class="not-found section-message" style="display: none;">
+        <img src="assets/message/not-found.png" />
+        <div>
+          <h1>City Not Found</h1>
+          <h4 class="regular-txt">Please try a valid city name</h4>
+        </div>
+      </section>
 
-            <section class="search-city section-message">
-                <img src="assets/message/search-city.png" />
-                <div>
-                    <h1>Search City</h1>
-                    <h4 class="regular-txt">Find out the weather condition of your city</h4>
-                </div>
-            </section>
-
-            <section class="not-found section-message" style="display: none;">
-                <img src="assets/message/not-found.png" />
-                <div>
-                    <h1>City Not Found</h1>
-                    <h4 class="regular-txt">Please try a valid city name</h4>
-                </div>
-            </section>
-
-            <p class="app-credit">Made by Samadhan Porje</p>
-        </main>
-    </div>
+      <p class="app-credit">Made by Samadhan Porje</p>
+    </main>
+  </div>
 </body>
 
 </html>
